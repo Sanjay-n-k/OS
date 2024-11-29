@@ -1,21 +1,63 @@
-import * as React from "react";
-
+import React, { useState } from "react";
+import Logo from '../Assets/Logo.png';
 export default function Header() {
-  return (
-    <header className="flex overflow-hidden z-0 flex-col justify-center w-full text-sm font-semibold leading-none bg-stone-50 min-h-[100px] text-zinc-600 max-md:max-w-full max-sm:min-h-[93px]">
-      <nav className="flex flex-wrap gap-10 justify-between items-center px-4 py-2 w-full bg-stone-50 min-h-[99px] max-md:max-w-full max-sm:gap-20 max-sm:justify-center max-sm:pb-5 max-sm:mx-auto max-sm:h-auto max-sm:grow-0 max-sm:min-h-[33px]">
+  const [menuOpen, setMenuOpen] = useState(false);  return (
+    <header className="flex flex-col justify-center w-full text-sm font-semibold leading-none bg-stone-50 min-h-[100px] text-zinc-600">
+      <nav className="flex justify-between items-center px-4 py-2 w-full bg-stone-50">
+        {/* Logo */}
         <img
           loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/531267df82d94c7ab63759c540d3bfd2/86a18737a0f38e4f4ea39e92001eed2d36c0d02670178282ca8a2aaadc7fa983?apiKey=531267df82d94c7ab63759c540d3bfd2&"
+          src={Logo}
           alt="Optimum Sync Logo"
-          className="object-contain shrink-0 self-stretch my-auto aspect-[100] min-h-[86px] min-w-[240px] w-[313px] max-sm:self-center max-sm:w-full max-sm:max-w-[225px]"
-        />
-        <div className="flex justify-center items-center self-stretch my-auto min-w-[240px]">
-          <a href="/" className="gap-2.5 self-stretch px-3 py-2 my-auto whitespace-nowrap" tabIndex="0">Home</a>
-          <a href="/about" className="gap-2.5 self-stretch px-3 py-2 my-auto" tabIndex="0">About Us</a>
-          <a href="/contact" className="gap-2.5 self-stretch px-3 py-2 my-auto w-[101px]" tabIndex="0">Contact Us</a>
+          className="object-contain w-[250px] h-auto max-sm:w-[200px]"
+        />        {/* Hamburger Menu Icon */}
+        <button
+          className="md:hidden p-2"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label="Toggle navigation menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>        {/* Desktop Navigation Links */}
+        <div className="hidden md:flex items-center gap-4">
+          <a href="/" className="px-3 py-2" aria-label="Go to Home">
+            Home
+          </a>
+          <a href="/about" className="px-3 py-2" aria-label="Learn About Us">
+            About Us
+          </a>
+          <a href="/contact" className="px-3 py-2" aria-label="Contact Us">
+            Contact Us
+          </a>
         </div>
-      </nav>
+      </nav>      {/* Mobile Dropdown Menu */}
+      <div
+        className={`${
+          menuOpen ? "block" : "hidden"
+        } md:hidden bg-stone-50 w-full px-4 py-2`}
+      >
+        <a href="/" className="block px-3 py-2 border-b border-gray-300">
+          Home
+        </a>
+        <a href="/about" className="block px-3 py-2 border-b border-gray-300">
+          About Us
+        </a>
+        <a href="/contact" className="block px-3 py-2">
+          Contact Us
+        </a>
+      </div>
     </header>
   );
 }

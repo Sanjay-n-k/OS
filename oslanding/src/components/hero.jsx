@@ -1,5 +1,6 @@
 import * as React from "react";
 
+
 export default function Hero() {
   return (
     <section className="flex overflow-hidden z-0 justify-center items-start w-full bg-white min-h-[748px] max-md:max-w-full">
@@ -20,7 +21,7 @@ export default function Hero() {
               </p>
             </div>
             <button className="overflow-hidden gap-1.5 self-center px-4 py-2.5 mt-8 text-base font-semibold bg-indigo-700 rounded-lg border border-indigo-700 border-solid shadow-sm text-zinc-50" tabIndex="0">
-              Contact Us Today
+            <a href="/contact" className="gap-2.5 self-stretch px-3 py-2 my-auto" tabIndex="0">    Contact Us Today </a>
             </button>
           </div>
         </div>
