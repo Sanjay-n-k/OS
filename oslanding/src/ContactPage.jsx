@@ -433,7 +433,7 @@ function ContactPage() {
 
                 <div className="flex flex-wrap gap-6 items-start py-6 w-full border-b border-solid border-b-zinc-300">
                   {contactDetails.map((detail, index) => (
-                  <a href="office@optimumsync.com">  <ContactDetail key={index} {...detail} /></a>
+                   <ContactDetail key={index} {...detail} />
                   ))}
                 </div>
               </div>
